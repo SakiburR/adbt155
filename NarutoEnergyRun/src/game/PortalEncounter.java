@@ -7,7 +7,11 @@ import city.cs.engine.SoundClip;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 import java.io.IOException;
-
+/**
+ * @author      Sakibur Rahman sakibur.rahman@city.ac.uk
+ * @version     1.0
+ * @since       Mar 2021
+ */
 public class PortalEncounter implements CollisionListener {
     private GameLevel level;
     private Game game;

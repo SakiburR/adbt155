@@ -1,3 +1,9 @@
+/**
+ * @author      Sakibur Rahman sakibur.rahman@city.ac.uk
+ * @version     1.0
+ * @since       Mar 2021
+ */
+
 package game;
 
 import city.cs.engine.*;

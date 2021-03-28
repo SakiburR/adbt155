@@ -1,3 +1,10 @@
+/**
+ * @author      Sakibur Rahman sakibur.rahman@city.ac.uk
+ * @version     1.0
+ * @since       Mar 2021
+ */
+
+
 package game;
 
 import city.cs.engine.SoundClip;
@@ -22,22 +29,29 @@ public class Game extends World {
     /** A graphical display of the world (a specialised JPanel). */
     private GameView view;
 
+    /** The initial count value for the levels */
     private static int levelCount;{
         levelCount = 1;
     }
+
+    /** The level goal for the first level */
     private static int levelGoal;{
         levelGoal = 15;
     }
 
-
+    /** Allows soundclips to be used in the game */
     private SoundClip gameMusic;
 
+    /** Allows the naruto controller class to be accessed in the Game class.*/
     private NarutoController narutoController;
 
+    /** allows the weapon controller (ShootController) class to be accessed in the Game class */
     private ShootController shootController;
 
+    /** Allows for the use of the Jlabel used to count the energy level */
     private JLabel energyLevel;
 
+    /** Allows the Naruto class to be accessed in the Game class */
     private Naruto naruto;
 
 
@@ -46,20 +60,31 @@ public class Game extends World {
     /** Initialise a new Game. */
     public Game() {
         // make the world
+        /**
+         * selects level to be displayed in the view
+         */
         level = new Level1(this);
-
         // make a view
+        /**
+         * displays the game
+         */
         view = new GameView(level, 700, 700);
         view.setZoom(20);
         view.setBack(level.paintBackground());
 
+        /**
+         * allows the controller to work in the level and view
+         */
         shootController = new ShootController(view, level.getNaruto());
         view.addMouseListener(shootController);
         view.addMouseMotionListener(shootController);
 
         //background music for the game
+
         try {
-            gameMusic = new SoundClip("data/backgroundmusic.wav");   // Open an audio input stream
+            /** * selects the sound file for the background */
+            gameMusic = new SoundClip("data/backgroundmusic.wav");// Open an audio input stream
+            /** * puts the sound file in a loop */
             gameMusic.loop();  // Set it to continuous playback (looping)
         } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
             System.out.println(e);
@@ -77,16 +102,11 @@ public class Game extends World {
         JFrame frame = new JFrame("Naruto Energy Run");
         frame.add(view);
 
-        //secondary zoomed out view of level
-        /*UserView wideView = new UserView(level, 300, 100);
-        wideView.setZoom(8);
-        frame.add(wideView, BorderLayout.EAST);
-
+        //Uncomment for secondary zoomed out view of level:
+            /*UserView wideView = new UserView(level, 300, 100);
+            wideView.setZoom(8);
+            frame.add(wideView, BorderLayout.EAST);
          */
-
-
-
-
         // enable the frame to quit the application
         // when the x button is pressed
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -112,7 +132,9 @@ public class Game extends World {
     }
 
 
-
+    /**
+     * gets the level
+     */
     public GameLevel getLevel() {
         return level;}
 

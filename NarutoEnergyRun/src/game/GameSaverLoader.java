@@ -1,3 +1,10 @@
+/**
+ * @author      Sakibur Rahman sakibur.rahman@city.ac.uk
+ * @version     1.0
+ * @since       Mar 2021
+ */
+
+
 package game;
 
 import java.io.BufferedReader;
@@ -6,6 +13,12 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class GameSaverLoader {
+    /**
+     * saves a game to the file
+     * @param level level that i'm in
+     * @param fileName file where gameplay is saved
+     * @return nothing
+     */
     public static void save(GameLevel level, String fileName)
             throws IOException
     {
@@ -22,6 +35,12 @@ public class GameSaverLoader {
         }
     }
 
+    /**
+     * saves a game to the file
+     * @param game where game is initialised
+     * @param fileName file where gameplay is loaded
+     * @return nothing
+     */
     public static GameLevel load(Game game, String fileName)
         throws IOException{
         FileReader fr = null;
